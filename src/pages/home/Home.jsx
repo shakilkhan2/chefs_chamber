@@ -1,7 +1,7 @@
 import React from "react";
 import "./home.css";
 import Cover from "../cover/Cover";
-import Footer from "../shared/footer/Footer";
+
 import { useLoaderData } from "react-router-dom";
 import ChefInfo from "../chefInfo/ChefInfo";
 import Subscribe from "../subscription/Subscribe";
@@ -26,7 +26,7 @@ const Home = () => {
       <div>
         <Subscribe />
       </div>
-      <Footer />
+     
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { FaBeer, FaRegThumbsUp } from "react-icons/fa";
+import {  FaRegThumbsUp } from "react-icons/fa";
 import "./chefInfo.css";
 
 const ChefInfo = ({ chef }) => {
