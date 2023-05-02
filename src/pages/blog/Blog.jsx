@@ -4,7 +4,7 @@ const Blog = () => {
   return (
     <div>
       <h1 className="text-4xl font-semibold text-amber-700 text-center mt-6 mb-2">
-        Welcome to my blog
+        Welcome to our blog
       </h1>
       <hr className="w-[40%] mx-auto mb-6 border-amber-700" />
       <div className="mx-32 mb-6">
