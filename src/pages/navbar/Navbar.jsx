@@ -4,9 +4,9 @@ import Login from "../login/Login";
 
 const Navbar = () => {
   return (
-    <div className="flex justify-between items-center mx-20 mt-8">
-      <Link className="text-blue-500 text-xl ">
-        <span className="text-4xl font-bold text-blue-600">Chefs'</span> Chamber
+    <div className="flex justify-between items-center  bg-amber-50 py-2">
+      <Link className="text-amber-500 text-xl ml-20">
+        <span className="text-4xl font-bold text-amber-500">Chefs'</span> Chamber
       </Link>
       <div>
         <Link className="mr-12" to="/">

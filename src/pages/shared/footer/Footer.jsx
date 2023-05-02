@@ -3,16 +3,16 @@ import React from "react";
 const Footer = () => {
   return (
     <div>
-      <footer className="footer p-10 bg-base-300 text-base-content">
+      <footer className="footer p-10 bg-amber-50 text-base-content">
         <div>
           <span className="footer-title">Services</span>
-          <a className="link link-hover">Branding</a>
-          <a className="link link-hover">Design</a>
-          <a className="link link-hover">Marketing</a>
-          <a className="link link-hover">Advertisement</a>
+          <a className="link link-hover">Catering</a>
+          <a className="link link-hover">Dining</a>
+          <a className="link link-hover">Parcel</a>
+          <a className="link link-hover">Customize Food</a>
         </div>
         <div>
-          <span className="footer-title">Company</span>
+          <span className="footer-title">Chefs' Chamber</span>
           <a className="link link-hover">About us</a>
           <a className="link link-hover">Contact</a>
           <a className="link link-hover">Jobs</a>
@@ -56,6 +56,7 @@ const Footer = () => {
             </a>
           </div>
         </div>
+        <p className="text-center">Copyright © 2012 - 2023 Chefs'®. All rights reserved</p>
       </footer>
     </div>
   );

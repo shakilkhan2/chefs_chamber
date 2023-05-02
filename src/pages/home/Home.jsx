@@ -1,59 +1,32 @@
 import React from "react";
+import "./home.css";
+import Cover from "../cover/Cover";
+import Footer from "../shared/footer/Footer";
+import { useLoaderData } from "react-router-dom";
+import ChefInfo from "../chefInfo/ChefInfo";
+import Subscribe from "../subscription/Subscribe";
 
 const Home = () => {
+  const allChef = useLoaderData();
+  console.log(allChef);
   return (
-    <div>
-      <div className="carousel carousel-center rounded-box">
-        <div className="carousel-item">
-          <img
-            className="h-80"
-            src="../../../public/asset/images/burger.jpg"
-            alt="Pizza"
-          />
-        </div>
-        <div className="carousel-item">
-          <img
-            className="h-80"
-            src="../../../public/asset/images/pasta.jpg"
-            alt="Pizza"
-          />
-        </div>
-        <div className="carousel-item">
-          <img
-            className="h-80"
-            src="/../../../public/asset/images/c-fried.jpg"
-            alt="Pizza"
-          />
-        </div>
-        <div className="carousel-item">
-        <img
-            className="h-80"
-            src="/../../../public/asset/images/c-fried.jpg"
-            alt="Pizza"
-          />
-        </div>
-        <div className="carousel-item">
-        <img
-            className="h-80"
-            src="/../../../public/asset/images/c-fried.jpg"
-            alt="Pizza"
-          />
-        </div>
-        <div className="carousel-item">
-        <img
-            className="h-80"
-            src="/../../../public/asset/images/c-fried.jpg"
-            alt="Pizza"
-          />
-        </div>
-        <div className="carousel-item">
-        <img
-            className="h-80"
-            src="/../../../public/asset/images/c-fried.jpg"
-            alt="Pizza"
-          />
-        </div>
+    <div className="">
+      <Cover />
+      <div className="mt-12 text-center">
+        <h1 className="text-5xl font-bold text-amber-800 text-center">
+          Meet our Chef
+        </h1>
+        <p>Our best chefs are skilled culinary professionals with years of experience in creating delicious and visually <br /> appealing dishes.  They are passionate about cooking and use their <br /> creativity to make every meal a masterpiece.</p>
       </div>
+      <div className="grid grid-cols-3  ">
+        {allChef.map((chef) => (
+          <ChefInfo key={chef.id} chef={chef}></ChefInfo>
+        ))}
+      </div>
+      <div>
+        <Subscribe />
+      </div>
+      <Footer />
     </div>
   );
 };
