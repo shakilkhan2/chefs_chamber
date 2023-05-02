@@ -17,6 +17,7 @@ const Login = () => {
           name="email"
           id=""
           placeholder="Email"
+          required
         />{" "}
         <br />
         <input
@@ -25,6 +26,7 @@ const Login = () => {
           name="password"
           id=""
           placeholder="password"
+          required
         />{" "}
         <br />
         <button className="text-center border border-amber-500 bg-white text-amber-500 px-8 py-3 mt-8 font-semibold hover:text-white hover:bg-amber-500">
