@@ -1,10 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { FaGithub, FaGoogle, FaRegThumbsUp } from "react-icons/fa";
+import { AuthContext } from "../../context/AuthProvider";
 
 const Login = () => {
+  const { signIn } = useContext(AuthContext);
+
+  const handleLogIn = (event) => {
+    event.preventDefault();
+
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+
+    console.log(email, password);
+  };
+
   return (
-    <form className="bg-white border border-amber-500 w-[50%] mx-auto py-12 my-8 shadow-2xl">
+    <form
+      onSubmit={handleLogIn}
+      className="bg-white border border-amber-500 w-[50%] mx-auto py-12 my-8 shadow-2xl"
+    >
       <h1 className="text-center text-3xl text-amber-500 font-bold">
         Please Log in
       </h1>
@@ -43,11 +59,15 @@ const Login = () => {
       </div>
       <div className="flex w-full px-4 mt-4">
         <div className="grid h-15 flex-grow hover:border border-amber-500 cursor-pointer card bg-base-300  place-items-center">
-        <div className="flex items-center"><FaGoogle /> <p className="ml-2">Continue with Google</p></div>
+          <div className="flex items-center">
+            <FaGoogle /> <p className="ml-2">Continue with Google</p>
+          </div>
         </div>
         <div className="divider divider-horizontal">OR</div>
         <div className="grid h-15 flex-grow hover:border border-amber-500 cursor-pointer card bg-base-300  place-items-center">
-          <div className="flex items-center"><FaGithub /> <p className="ml-2">Continue with Github</p></div>
+          <div className="flex items-center">
+            <FaGithub /> <p className="ml-2">Continue with Github</p>
+          </div>
         </div>
       </div>
     </form>

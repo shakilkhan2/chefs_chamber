@@ -1,9 +1,35 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../context/AuthProvider";
 
 const Register = () => {
+  const { createUser } = useContext(AuthContext);
+
+  const handleRegister = (event) => {
+    event.preventDefault();
+
+    const form = event.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    const photo = form.photo.value;
+    console.log(name, email, password, photo);
+
+    createUser(email, password)
+      .then((result) => {
+        const createdUser = result.user;
+        console.log(createdUser);
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
   return (
-    <form className="bg-white border border-amber-500 w-[50%] mx-auto py-12 my-8 shadow-2xl">
+    <form
+      onSubmit={handleRegister}
+      className="bg-white border border-amber-500 w-[50%] mx-auto py-12 my-8 shadow-2xl"
+    >
       <h1 className="text-center text-3xl text-amber-500 font-bold">
         Please Register
       </h1>
@@ -37,18 +63,18 @@ const Register = () => {
         <br />
         <input
           className="mr-4 pl-2 py-3 w-[50%] border border-amber-500 mt-6"
-          type="Photurl"
+          type="text"
           name="photo"
           id=""
           placeholder="Photo Url"
         />{" "}
         <br />
         <button className="text-center  border border-amber-500 bg-white text-amber-500 px-8 py-3 mt-8 font-semibold hover:text-white hover:bg-amber-500">
-         Register
+          Register
         </button>
         <p>
           <small>
-          Already have an account? {" "}
+            Already have an account?{" "}
             <span className="text-amber-500 hover:underline">
               <Link to="/login">Login.</Link>
             </span>

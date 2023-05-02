@@ -105,14 +105,14 @@ const Blog = () => {
             easier to reuse that code in other parts of your application. <br />
             - Abstraction: By creating a custom hook, you can abstract away
             complex or repetitive logic, making your components easier to read
-            and understand. <br />
-            - Composition: Custom hooks can be composed together to create more
-            complex behavior. For example, you might have one custom hook that
-            handles state management and another that handles API calls, and you
-            can combine them to create a more advanced hook that handles both.{" "}
-            <br />- Testing: By encapsulating logic in a custom hook, you can
-            more easily test that code in isolation from your components,
-            improving the overall testability of your application.
+            and understand. <br />- Composition: Custom hooks can be composed
+            together to create more complex behavior. For example, you might
+            have one custom hook that handles state management and another that
+            handles API calls, and you can combine them to create a more
+            advanced hook that handles both. <br />- Testing: By encapsulating
+            logic in a custom hook, you can more easily test that code in
+            isolation from your components, improving the overall testability of
+            your application.
           </div>
           In summary, custom hooks are a powerful tool for encapsulating
           reusable logic in a React application, and can help to improve code
