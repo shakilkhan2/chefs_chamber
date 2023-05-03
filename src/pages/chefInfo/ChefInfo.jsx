@@ -3,7 +3,7 @@ import {  FaRegThumbsUp } from "react-icons/fa";
 import "./chefInfo.css";
 
 const ChefInfo = ({ chef }) => {
-  console.log(chef);
+  // console.log(chef);
   const { picture, name, experience_years, num_recipes, likes_ratings, bio } =
     chef;
 
