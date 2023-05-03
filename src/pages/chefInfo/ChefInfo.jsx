@@ -1,10 +1,11 @@
 import React from "react";
 import {  FaRegThumbsUp } from "react-icons/fa";
 import "./chefInfo.css";
+import { Link } from "react-router-dom";
 
 const ChefInfo = ({ chef }) => {
   // console.log(chef);
-  const { picture, name, experience_years, num_recipes, likes_ratings, bio } =
+  const {id, picture, name, experience_years, num_recipes, likes_ratings, bio } =
     chef;
 
   return (
@@ -37,7 +38,7 @@ const ChefInfo = ({ chef }) => {
   </div>
   <div className="absolute bottom-0 left-0 w-full">
     <div className="p-4 mb-0">
-      <button className="bg-amber-500 px-4 py-2 rounded w-full text-white hover:bg-amber-600">View Recipes</button>
+      <Link to={`/recipes/${id}`}><button className="bg-amber-500 px-4 py-2 rounded w-full text-white hover:bg-amber-600">View Recipes</button></Link>
     </div>
   </div>
 </div>
