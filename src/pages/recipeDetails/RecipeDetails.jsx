@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
+import { toast } from "react-hot-toast";
 import { FaRegThumbsUp } from "react-icons/fa";
 import { Link, useLoaderData } from "react-router-dom";
 
 const RecipeDetails = ({ recipe, chef }) => {
   const { picture, name, ingredients, cooking_method, rating } = recipe;
   console.log(chef);
+
+  const [disable, setDisable] = useState(false);
+
+  const handleFavourite = () => {
+    toast.success("Recipe is your favorite.");
+    setDisable(true);
+  };
 
   return (
     <div className=" w-[80%] mx-auto ml-16">
@@ -28,11 +36,15 @@ const RecipeDetails = ({ recipe, chef }) => {
             {rating}
           </h3>
         </div>
-        <div className="absolute bottom-0 left-0 w-full">
+        <div className="absolute bottom-0 left-0 w-full ">
           <div className="p-4 mb-0">
             <Link>
-              <button className="bg-amber-700 px-4 py-2 rounded w-full text-white hover:bg-amber-500">
-                Add Favorite
+              <button
+                onClick={handleFavourite}
+                disabled={disable}
+                className="bg-amber-700 px-4 py-2 disabled:bg-amber-500 rounded w-full text-white hover:bg-amber-500"
+              >
+                {disable ? "Already added" : "Add to Favorite"}
               </button>
             </Link>
           </div>

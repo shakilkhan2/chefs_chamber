@@ -18,7 +18,7 @@ const Navbar = () => {
         <span className="text-4xl font-bold text-amber-500">Chefs'</span>{" "}
         Chamber
       </Link>
-      <div>
+      <div className="flex items-center">
         <span className="mr-12">
           {" "}
           <NavLink
@@ -37,8 +37,12 @@ const Navbar = () => {
           </NavLink>
         </span>
         {user && (
-          <span className="mr-12">
-            <NavLink to="/">{user.email}</NavLink>
+          <span className="mr-12" title={user.displayName}>
+            <img
+              className="h-10 w-10 rounded-full"
+              src={user?.photoURL}
+              alt=""
+            />
           </span>
         )}
         <span className="mr-12">

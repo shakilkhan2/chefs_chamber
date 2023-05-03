@@ -1,17 +1,33 @@
-import React, { useContext } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { FaGithub, FaGoogle, FaRegThumbsUp } from "react-icons/fa";
+import React, { useContext, useState } from "react";
+import { Link, Navigate, useLocation, useNavigate } from "react-router-dom";
+import { FaGithub, FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../context/AuthProvider";
+import {
+  GithubAuthProvider,
+  GoogleAuthProvider,
+  getAuth,
+  signInWithPopup,
+} from "firebase/auth";
+import app from "../../firebase/firebase.config";
 
 const Login = () => {
-  const { signIn } = useContext(AuthContext);
+  const auth = getAuth(app);
+  const provider = new GoogleAuthProvider();
+  const github = new GithubAuthProvider();
+  
+  // error msg:
+  const [error, setError] = useState({ isError: false, message: "" });
+
+  const { signIn, user } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-
+  if (user?.uid) {
+    return <Navigate to={from}></Navigate>;
+  }
   const handleLogIn = (event) => {
     event.preventDefault();
-
+    setError({ isError: false, message: "" });
     const form = event.target;
     const email = form.email.value;
     const password = form.password.value;
@@ -26,9 +42,38 @@ const Login = () => {
       })
       .catch((error) => {
         console.log(error);
+        setError({ isError: true, message: error.message });
       });
   };
 
+  // google sign in
+  const handleGoogleSignIn = () => {
+    setError({ isError: false, message: "" });
+    signInWithPopup(auth, provider)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+        setError({ isError: true, message: error.message });
+      });
+  };
+
+  //
+  const handleGitHubSignIn = () => {
+    setError({ isError: false, message: "" });
+    signInWithPopup(auth, github)
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => {
+        console.log(error.message);
+        setError({ isError: true, message: error.message });
+      });
+  };
+  //
   return (
     <form
       onSubmit={handleLogIn}
@@ -61,6 +106,11 @@ const Login = () => {
         <button className="text-center border border-amber-500 bg-white text-amber-500 px-8 py-3 mt-8 font-semibold hover:text-white hover:bg-amber-500">
           Login
         </button>
+        {error.isError && (
+          <p className="my-8 text-red-600 text-xs text-center">
+            {error.message}
+          </p>
+        )}
         <p>
           <small>
             Don’t have an account?{" "}
@@ -71,13 +121,19 @@ const Login = () => {
         </p>
       </div>
       <div className="flex w-full px-4 mt-4">
-        <div className="grid h-15 flex-grow hover:border border-amber-500 cursor-pointer card bg-base-300  place-items-center">
+        <div
+          onClick={handleGoogleSignIn}
+          className="grid h-15 flex-grow hover:border border-amber-500 cursor-pointer card bg-base-300  place-items-center"
+        >
           <div className="flex items-center">
             <FaGoogle /> <p className="ml-2">Continue with Google</p>
           </div>
         </div>
         <div className="divider divider-horizontal">OR</div>
-        <div className="grid h-15 flex-grow hover:border border-amber-500 cursor-pointer card bg-base-300  place-items-center">
+        <div
+          onClick={handleGitHubSignIn}
+          className="grid h-15 flex-grow hover:border border-amber-500 cursor-pointer card bg-base-300  place-items-center"
+        >
           <div className="flex items-center">
             <FaGithub /> <p className="ml-2">Continue with Github</p>
           </div>
