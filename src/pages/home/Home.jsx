@@ -8,7 +8,7 @@ import Subscribe from "../subscription/Subscribe";
 
 const Home = () => {
   const allChef = useLoaderData();
-  console.log(allChef);
+  // console.log(allChef);
   return (
     <div className="">
       <Cover />

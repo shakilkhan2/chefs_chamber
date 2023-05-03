@@ -13,7 +13,7 @@ const Cover = () => {
         </h1>
         <div>
           <img
-            className="h-full pt-8 pr-40"
+            className=" max-w-full  pt-8 pr-40 image-full h-auto"
             src="../../../public/asset/images/chef1.png"
             alt=""
           />

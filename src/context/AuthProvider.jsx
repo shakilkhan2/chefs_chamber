@@ -28,7 +28,7 @@ const logOut = () => {
 
 useEffect(() => {
  const unsubscribe = onAuthStateChanged(auth, loggedUser => {
-    console.log("useLogged", loggedUser)
+    console.log("loggedUser:", loggedUser)
     setUser(loggedUser);
     setLoading(false);
   })
