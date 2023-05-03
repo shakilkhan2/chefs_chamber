@@ -8,6 +8,7 @@ import ErrorPage from "../pages/error/ErrorPage";
 import PrivateRoute from "./PrivateRoute";
 import Loading from "../pages/loading/Loading";
 import Recipes from "../pages/recipes/Recipes";
+import RecipeDetails from "../pages/recipeDetails/RecipeDetails";
 
 const router = createBrowserRouter([
   {
@@ -21,7 +22,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/recipes/:id",
-        element: <Recipes/>,
+        element: (
+          <PrivateRoute>
+            <Recipes />
+          </PrivateRoute>
+        ),
         loader: () => fetch(`http://localhost:5000/recipes`),
       },
       {

@@ -1,13 +1,14 @@
 import React from "react";
 import { FaRegThumbsUp } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
-const RecipeDetails = ({ recipe }) => {
+const RecipeDetails = ({ recipe, chef }) => {
   const { name, ingredients, cooking_method, rating } = recipe;
+  console.log(chef);
 
   return (
     <div className=" w-[80%] mx-auto ml-16">
-      <div className="bg-amber-50 border-2 w-80 h-[550px] border-amber-700 my-12 shadow-2xl relative">
+      <div className="bg-amber-50 border w-80 h-[550px]  border-amber-700 my-6 shadow-2xl relative">
         <div className="text-center p-2">
           <h1 className="text-3xl font-bold text-amber-700">{name}</h1>
           <p className="">{ingredients}</p>
