@@ -1,7 +1,7 @@
 .cover {
   height: 59vh;
   background-image: linear-gradient(rgba(14, 0, 0, 0.589), rgba(0, 0, 0, 0.527)),
-    url(../../../public/asset/images/cover.jpg);
+    url(https://i.ibb.co/rcL08vr/cover.jpg);
   background-size: cover;
   background-position: bottom;
 }

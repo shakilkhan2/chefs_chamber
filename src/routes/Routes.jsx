@@ -18,7 +18,7 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home />,
-        loader: () => fetch(`http://localhost:5000/chefs`),
+        loader: () => fetch(`https://y-shakilkhan2.vercel.app/chefs`),
       },
       {
         path: "/recipes/:id",
@@ -27,7 +27,7 @@ const router = createBrowserRouter([
             <Recipes />
           </PrivateRoute>
         ),
-        loader: () => fetch(`http://localhost:5000/recipes`),
+        loader: () => fetch(`https://y-shakilkhan2.vercel.app/recipes`),
       },
       {
         path: "/blog",

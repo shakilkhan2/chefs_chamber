@@ -14,7 +14,7 @@ const Cover = () => {
         <div>
           <img
             className="sm:appearance-none md:max-w-full   md:pt-8 pr-40 image-full h-auto"
-            src="../../../public/asset/images/chef1.png"
+            src="https://i.ibb.co/bPXqjbD/chef-Cover.png"
             alt=""
           />
         </div>
