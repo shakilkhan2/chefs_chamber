@@ -20,7 +20,7 @@ const Recipes = () => {
       });
   }, []);
 
-  console.log(chefs);
+  // console.log(chefs);
   return (
     <div>
       <div className="flex w-[70%] mx-auto mt-12 bg-white border border-amber-500 mb-6">

@@ -5,10 +5,13 @@ const ErrorPage = () => {
   return (
     <div className="flex items-center">
       <div className="w-[30%] mx-auto mt-16">
-        <img src="../../../public/asset/images/error.jpg" alt="" />
+        <img src="https://i.ibb.co/FgGJBs6/error.jpg" alt="" />
         <h3 className="text-center text-amber-700 mb-16 mt-4 text-2xl">
           {" "}
-          An unexpected error occurs! <br /> <span className="hover:underline text-lg text-blue-500"><Link to="/">Back to home</Link></span>{" "}
+          An unexpected error occurs! <br />{" "}
+          <span className="hover:underline text-lg text-blue-500">
+            <Link to="/">Back to home</Link>
+          </span>{" "}
         </h3>
       </div>
       <br />
