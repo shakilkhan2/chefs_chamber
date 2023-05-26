@@ -2,6 +2,7 @@ import React from "react";
 import { FaRegThumbsUp } from "react-icons/fa";
 import "./chefInfo.css";
 import { Link } from "react-router-dom";
+import LazyLoad from "react-lazyload";
 
 const ChefInfo = ({ chef }) => {
   // console.log(chef);
@@ -17,9 +18,11 @@ const ChefInfo = ({ chef }) => {
 
   return (
     <div className=" w-[80%] mx-auto ml-16">
-      <div className="bg-amber-50 border-2 w-80 h-[550px] border-amber-500 my-12 shadow-2xl relative">
+      <div className="bg-amber-50  w-80 h-[550px] border-amber-500 my-12 hover:shadow-2xl relative">
         <div>
-          <img className="p-4" src={picture} alt="" />
+          <LazyLoad>
+            <img className="p-4" src={picture} alt="" />
+          </LazyLoad>
         </div>
         <div className="text-center p-2">
           <h1 className="text-3xl font-bold text-amber-500">{name}</h1>

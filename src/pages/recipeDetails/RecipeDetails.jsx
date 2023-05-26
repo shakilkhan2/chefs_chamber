@@ -18,7 +18,7 @@ const RecipeDetails = ({ recipe, chef }) => {
 
   return (
     <div className=" w-[80%] mx-auto ml-16">
-      <div className="bg-amber-50 border  w-80 h-[700px] border-amber-700 my-6 shadow-2xl relative">
+      <div className="bg-amber-50 border  w-80 h-[700px] border-amber-700 my-6 hover:shadow-2xl relative">
         <div>
           <img className="p-2 h-[200px]" src={picture} alt="" />
         </div>

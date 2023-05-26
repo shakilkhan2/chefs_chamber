@@ -9,7 +9,9 @@ const Main = () => {
 
   return (
     <div>
-      <Navbar />
+      <div className="sticky top-0 z-50">
+        <Navbar />
+      </div>
 
       <div>{navigation.state === "loading" ? <Loading /> : ""}</div>
 

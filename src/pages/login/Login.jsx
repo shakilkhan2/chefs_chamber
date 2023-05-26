@@ -14,7 +14,7 @@ const Login = () => {
   const auth = getAuth(app);
   const provider = new GoogleAuthProvider();
   const github = new GithubAuthProvider();
-  
+
   // error msg:
   const [error, setError] = useState({ isError: false, message: "" });
 
